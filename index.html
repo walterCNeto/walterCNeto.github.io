@@ -93,9 +93,21 @@
     .btn:hover{filter:brightness(1.05)}
 
     /* Sections */
-    section{padding: 48px 0}
-    section h2{font-size: clamp(20px, 3.4vw, 26px); text-align:center; margin:0 0 24px}
-    .lead{max-width:840px; margin:0 auto 24px; text-align:center; color:var(--muted); font-size:0.95rem;}
+    section {
+      padding: 64px 0;
+    }    
+    section h2 {
+      font-size: clamp(20px, 3.4vw, 26px);
+      text-align: center;
+      margin: 40px 0 32px; /* mais espaço antes do título */
+    }    
+    .lead {
+      max-width: 840px;
+      margin: 0 auto 28px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
 
     /* Grid cards */
     .grid{display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:18px}
