@@ -1,55 +1,130 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modelagem Matemática</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            background: #f5f5f5;
-            color: #333;
-            text-align: center;
-        }
-        h1 {
-            color: #1a73e8;
-        }
-        .projetos {
-            margin-top: 30px;
-        }
-        .card {
-            background: white;
-            padding: 20px;
-            margin: 10px auto;
-            max-width: 400px;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio - Walter C Neto</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background: #f5f5f5;
+      color: #333;
+    }
+    header {
+      background: #1a73e8;
+      color: white;
+      padding: 15px 0;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    header nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 80px 20px 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #1a73e8;
+    }
+    .sobre {
+      text-align: center;
+    }
+    .sobre img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+    .projetos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+    .card h3 {
+      margin-top: 0;
+    }
+    .card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      background: #1a73e8;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    .card a:hover {
+      background: #1558b0;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #1a73e8;
+      color: white;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
+
+  <header>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <section id="sobre" class="sobre">
     <h1>Walter C Neto</h1>
-    <p>Superintendente | Validação de Modelos • Eng. Físico (UFSCar) • Mestre em Eng. Financeira (FGV-EESP)</p>
+    <img src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y" alt="Minha foto">
+    <p>Engenheiro Físico | Mestre em Engenharia Financeira (FGV) | Superintendente de Validação de Modelos</p>
+    <p>Especialista em risco de crédito, precificação de derivativos e modelos regulatórios de Basileia.</p>
+  </section>
 
+  <section id="projetos">
+    <h2>Projetos</h2>
     <div class="projetos">
-        <h2>Projetos</h2>
-
-        <div class="card">
-            <h3>Fluxo de Crédito</h3>
-            <p>Simulador de carteiras de crédito bancário com transições de estados para construção de bases de modelagem.</p>
-            <a href="https://github.com/walterCNeto/CreditFlux" target="_blank">Ver no GitHub</a>
-        </div>
-
-        <div class="card">
-            <h3>Precificador de Derivativos</h3>
-            <p>Biblioteca escrita em python para precificação de derivativos.</p>
-            <a href="https://github.com/walterCNeto/precificador" target="_blank">Ver no GitHub</a>
-        </div>
+      <div class="card">
+        <h3>CreditFlux</h3>
+        <p>Simulador de carteiras de crédito bancário com transições de estados.</p>
+        <a href="https://github.com/walterCNeto/CreditFlux" target="_blank">Ver no GitHub</a>
+      </div>
+      <div class="card">
+        <h3>DerivX Precificador</h3>
+        <p>Biblioteca em Python para precificação de derivativos.</p>
+        <a href="https://github.com/walterCNeto/precificador" target="_blank">Ver no GitHub</a>
+      </div>      
     </div>
+  </section>
 
-    <footer style="margin-top: 40px;">
-        <p>📧 contato: walter.correa.neto@gmail.com</p>
-    </footer>
+  <section id="contato">
+    <h2>Contato</h2>
+    <p>📧 <a href="mailto:walter.correa.neto@gmail.com">walter.correa.neto@gmail.com</a></p>
+    <p>🔗 <a href="https://www.linkedin.com/in/waltercneto/" target="_blank">LinkedIn</a></p>
+    <p>🐙 <a href="https://github.com/walterCNeto" target="_blank">GitHub</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Walter C Neto - Portfólio</p>
+  </footer>
+
 </body>
 </html>
