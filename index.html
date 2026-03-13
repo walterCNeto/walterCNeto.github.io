@@ -99,7 +99,7 @@
     section h2 {
       font-size: clamp(20px, 3.4vw, 26px);
       text-align: center;
-      margin: 40px 0 32px; /* mais espaço antes do título */
+      margin: 40px 0 32px;
     }    
     .lead {
       max-width: 840px;
@@ -126,6 +126,49 @@
     .link-btn{display:inline-flex; align-items:center; gap:.45rem; padding:.5rem .75rem; border-radius:8px; text-decoration:none; font-weight:600;
       background:rgba(26,115,232,.14); outline:1px solid rgba(26,115,232,.28); color:var(--text); font-size:0.95rem;}
     .link-btn:hover{background:rgba(26,115,232,.22)}
+
+    /* Card destaque (SFN Monitor) */
+    .card.featured {
+      border-color: rgba(26,115,232,.45);
+      background: linear-gradient(135deg,
+        color-mix(in oklab, var(--card) 88%, rgba(26,115,232,.3)),
+        var(--card)
+      );
+      position: relative;
+      overflow: hidden;
+    }
+    .card.featured::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(600px circle at top left, rgba(26,115,232,.08), transparent 60%);
+      pointer-events: none;
+    }
+    .badge-live {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+      color: #34d399;
+      background: rgba(52,211,153,.12);
+      border: 1px solid rgba(52,211,153,.3);
+      border-radius: 999px;
+      padding: .2rem .55rem;
+    }
+    .badge-live::before {
+      content: "";
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #34d399;
+      animation: pulse-dot 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .4; transform: scale(.7); }
+    }
 
     /* Sobre */
     .about{
@@ -217,6 +260,31 @@
     <section id="projetos" class="container" aria-labelledby="proj-title">
       <h2 id="proj-title">Projetos</h2>
       <div class="grid">
+
+        <!-- ── SFN Monitor (card destaque) ── -->
+        <article class="card featured">
+          <header>
+            <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.5rem; margin-bottom:.4rem">
+              <h3 style="margin:0">SFN Monitor</h3>
+              <span class="badge-live">ao vivo</span>
+            </div>
+            <div class="tags">
+              <span class="tag">Firebase</span>
+              <span class="tag">Cloud Functions</span>
+              <span class="tag">Firestore</span>
+              <span class="tag">BACEN SGS</span>
+              <span class="tag">Dashboard</span>
+            </div>
+          </header>
+          <p>Dashboard do Sistema Financeiro Nacional com dados ao vivo do BACEN. Compara os 10 maiores bancos brasileiros em ROE, NIM, inadimplência, Basileia e eficiência. Atualização automática via Cloud Functions agendadas.</p>
+          <div class="cta">
+            <a class="link-btn" href="https://sfn-monitor.web.app" target="_blank" rel="noopener">
+              Abrir dashboard <span aria-hidden>↗</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- ── Derivx Risk Neutral ── -->
         <article class="card">
           <header>
             <h3>Derivx Risk Neutral</h3>
@@ -234,6 +302,8 @@
               <span aria-hidden>↗</span></a>
           </div>
         </article>
+
+        <!-- ── Pricing RAROC ── -->
         <article class="card">
           <header>
             <h3>Pricing Raroc</h3>
@@ -248,6 +318,7 @@
             <a class="link-btn" href="https://walter-cn.shinyapps.io/shinyraroc/" target="_blank" rel="noopener">Abrir App <span aria-hidden>↗</span></a>
           </div>
         </article>
+
       </div>
     </section>
 
@@ -266,7 +337,7 @@
           </div>
         </article>
 
-          <article class="card">
+        <article class="card">
           <h3>Proposta de modelagem para a taxa de referência para o Brasil e EUA</h3>
           <p>Modelagem usando filtro de Kalman como referência para estudos de momento econômico para Brasil e EUA.</p>
           <div class="cta">
@@ -339,7 +410,7 @@
           </div>
         </article>
 
-          <article class="card">
+        <article class="card">
           <h3>DRC x CSRBB</h3>
           <p>Comparação conceitual entre default risk charge no trading book e credit spread risk in the banking book.</p>
           <div class="cta">
