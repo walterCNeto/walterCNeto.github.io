@@ -63,14 +63,10 @@
       background: color-mix(in oklab, var(--surface) 85%, transparent);
       border-bottom:1px solid rgba(148,163,184,.15);
     }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      height:64px;
-    }
+    .nav{display:flex; align-items:center; justify-content:space-between; height:64px;}
     .brand{display:flex; align-items:center; gap:.75rem; font-weight:700}
     .brand img{width:36px; height:36px; border-radius:50%; object-fit:cover}
     .brand span{letter-spacing:.2px}
-
     .menu{display:flex; gap:1rem}
     .menu a{
       padding:.5rem .75rem; border-radius:10px; text-decoration:none; color:var(--text);
@@ -85,7 +81,7 @@
     .hero{padding: clamp(56px, 10vw, 96px) 0 40px; text-align:center}
     .hero h1{font-size: clamp(22px, 3.8vw, 30px); line-height:1.18; margin: .25rem 0 2.0rem;}
     .kicker{display:inline-block; font-size:0.8rem; letter-spacing:0.4px; text-transform:uppercase; color:var(--muted)}
-    .hero p{max-width:880px; margin: 0 auto 1.25rem;  margin-top: 2rem; color:var(--muted); font-size:0.95rem;}
+    .hero p{max-width:880px; margin: 0 auto 1.25rem; margin-top: 2rem; color:var(--muted); font-size:0.95rem;}
     .hero .actions{margin-top:1.25rem; display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap}
     .btn{--_bg:var(--brand); --_fg:#fff; display:inline-flex; align-items:center; gap:.5rem; text-decoration:none;
       background:var(--_bg); color:var(--_fg); padding:.6rem 1rem; border-radius:10px; font-weight:600; box-shadow: var(--shadow)}
@@ -93,24 +89,32 @@
     .btn:hover{filter:brightness(1.05)}
 
     /* Sections */
-    section {
-      padding: 64px 0;
-    }    
-    section h2 {
-      font-size: clamp(20px, 3.4vw, 26px);
-      text-align: center;
-      margin: 40px 0 32px;
-    }    
-    .lead {
-      max-width: 840px;
-      margin: 0 auto 28px;
-      text-align: center;
+    section{padding: 64px 0;}
+    section h2{font-size: clamp(20px, 3.4vw, 26px); text-align: center; margin: 40px 0 32px;}
+    .lead{max-width: 840px; margin: 0 auto 28px; text-align: center; color: var(--muted); font-size: 0.95rem;}
+
+    /* Sub-rótulo de seção (Dashboards / Ferramentas) */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       color: var(--muted);
-      font-size: 0.95rem;
+      margin: 0 0 16px;
+    }
+    .section-label::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(148,163,184,.18);
     }
 
     /* Grid cards */
     .grid{display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:18px}
+    .grid-tools{display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:18px; max-width: 560px;}
     .card{
       background: linear-gradient(180deg, color-mix(in oklab, var(--card) 92%, transparent), var(--card));
       border:1px solid rgba(148,163,184,.18);
@@ -127,7 +131,7 @@
       background:rgba(26,115,232,.14); outline:1px solid rgba(26,115,232,.28); color:var(--text); font-size:0.95rem;}
     .link-btn:hover{background:rgba(26,115,232,.22)}
 
-    /* Card destaque (SFN Monitor) */
+    /* Card destaque */
     .card.featured {
       border-color: rgba(26,115,232,.45);
       background: linear-gradient(135deg,
@@ -172,18 +176,11 @@
 
     /* Sobre */
     .about{
-        display:grid; 
-        grid-template-columns: 110px 1fr; 
-        gap:18px; 
-        align-items:center; 
-        width:100%;
-        max-width:1080px;
-        margin: 0 auto;
-        background: color-mix(in oklab, var(--surface) 80%, transparent);
-        border:1px solid rgba(148,163,184,.18); 
-        border-radius: var(--radius); 
-        padding:24px; 
-        box-shadow: var(--shadow);
+      display:grid; grid-template-columns: 110px 1fr; gap:18px; align-items:center;
+      width:100%; max-width:1080px; margin: 0 auto;
+      background: color-mix(in oklab, var(--surface) 80%, transparent);
+      border:1px solid rgba(148,163,184,.18); border-radius: var(--radius);
+      padding:24px; box-shadow: var(--shadow);
     }
     .avatar{width:110px; height:110px; border-radius:50%; object-fit:cover; border:2px solid rgba(148,163,184,.35)}
 
@@ -193,8 +190,6 @@
     .list a:hover{background:rgba(148,163,184,.12)}
 
     footer{border-top:1px solid rgba(148,163,184,.18); padding:20px 0; text-align:center; color:var(--muted); font-size:0.85rem;}
-
-    /* Utilidades */
     .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
     .center{text-align:center}
   </style>
@@ -233,10 +228,10 @@
 
   <main id="top">
     <section class="hero container">
-      <span class="kicker">Validação de Modelos • Crédito • Mercado • Liquidez • Juros • Pricing </span>
+      <span class="kicker">Validação de Modelos • Crédito • Mercado • Liquidez • Juros • Pricing</span>
       <h1>Modelagem matemática aplicada à engenharia financeira</h1>
       <p>
-        Engenheiro Físico (UFSCar), Mestre em Engenharia Financeira (FGV-EESP). Atuação em modelos de risco de crédito, mercado, liquidez, 
+        Engenheiro Físico (UFSCar), Mestre em Engenharia Financeira (FGV-EESP). Atuação em modelos de risco de crédito, mercado, liquidez,
         precificação de derivativos, modelos regulatórios para bancos e tesourarias.
       </p>
       <div class="actions">
@@ -251,7 +246,7 @@
         <img class="avatar" src="imagens/verso.jpeg" alt="Retrato de Walter C Neto" />
         <div>
           <p><strong>Validação de Modelos</strong> (Banco Safra) | Engenheiro Físico (UFSCar) | Mestre em Engenharia Financeira (FGV-EESP)</p>
-          <p style="margin:0">Especialista em modelos de risco de crédito, mercado, liquidez e taxas de juros, com foco em 
+          <p style="margin:0">Especialista em modelos de risco de crédito, mercado, liquidez e taxas de juros, com foco em
           precificação de derivativos, XVAs, Icaap, RCMN 4.966 e FRTB.</p>
         </div>
       </div>
@@ -259,9 +254,11 @@
 
     <section id="projetos" class="container" aria-labelledby="proj-title">
       <h2 id="proj-title">Projetos</h2>
-      <div class="grid">
 
-        <!-- ── SFN Monitor (card destaque) ── -->
+      <!-- ── Dashboards ── -->
+      <p class="section-label">Dashboards ao vivo</p>
+      <div class="grid" style="margin-bottom:40px">
+
         <article class="card featured">
           <header>
             <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.5rem; margin-bottom:.4rem">
@@ -278,9 +275,7 @@
           </header>
           <p>Dashboard do Sistema Financeiro Nacional com dados ao vivo do BACEN. Compara os 10 maiores bancos brasileiros em ROE, NIM, inadimplência, Basileia e eficiência. Atualização automática via Cloud Functions agendadas.</p>
           <div class="cta">
-            <a class="link-btn" href="https://sfn-monitor.web.app" target="_blank" rel="noopener">
-              Abrir dashboard <span aria-hidden>↗</span>
-            </a>
+            <a class="link-btn" href="https://sfn-monitor.web.app" target="_blank" rel="noopener">Abrir dashboard <span aria-hidden>↗</span></a>
           </div>
         </article>
 
@@ -298,35 +293,12 @@
               <span class="tag">Dashboard</span>
             </div>
           </header>
-          <p>Dashboard público com dados ao vivo do ranking de reclamações do Banco Central. Mapeia irregularidades procedentes por assunto
-            para todos os bancos S1 e S2, com filtros por conglomerado e série histórica trimestral. </p>
+          <p>Dashboard público com dados ao vivo do ranking de reclamações do Banco Central. Mapeia irregularidades procedentes por assunto para todos os bancos S1 e S2, com filtros por conglomerado e série histórica trimestral.</p>
           <div class="cta">
-            <a class="link-btn" href="https://waltercneto.github.io/BacenProcedentes/" target="_blank" rel="noopener">
-              Abrir dashboard <span aria-hidden>↗</span>
-            </a>
+            <a class="link-btn" href="https://waltercneto.github.io/BacenProcedentes/" target="_blank" rel="noopener">Abrir dashboard <span aria-hidden>↗</span></a>
           </div>
         </article>
 
-        <!-- ── Derivx Risk Neutral ── -->
-        <article class="card">
-          <header>
-            <h3>Derivx Risk Neutral</h3>
-            <div class="tags">
-              <span class="tag">Python</span>
-              <span class="tag">Derivativos</span>
-              <span class="tag">Biblioteca</span>
-            </div>
-          </header>
-          <p>Biblioteca em python para precificação de opções vanilla e exóticas. Suporte a GBM, Monte Carlo, bermudas, asiáticas e outras.</p>
-          <div class="cta">
-            <a class="link-btn" href="https://pypi.org/project/derivx-precificador/" target="_blank" rel="noopener">Ver no PyPI
-              <span aria-hidden>↗</span></a>
-            <a class="link-btn" href="https://github.com/walterCNeto/precificador" target="_blank" rel="noopener">Repositório
-              <span aria-hidden>↗</span></a>
-          </div>
-        </article>
-
-        <!-- ── FinReport CVM ── -->
         <article class="card featured">
           <header>
             <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.5rem; margin-bottom:.4rem">
@@ -343,18 +315,22 @@
           </header>
           <p>Dashboard financeiro com dados oficiais da CVM. BP, DRE e indicadores setoriais de 628 empresas abertas brasileiras. Inclui Z-Score de Altman nos três modelos (original, ajustado e não-fabril de Caouette).</p>
           <div class="cta">
-            <a class="link-btn" href="https://finreport-cvm-production.up.railway.app" target="_blank" rel="noopener">
-              Abrir dashboard <span aria-hidden>↗</span>
-            </a>
+            <a class="link-btn" href="https://finreport-cvm-production.up.railway.app" target="_blank" rel="noopener">Abrir dashboard <span aria-hidden>↗</span></a>
           </div>
         </article>
 
-        <!-- ── Pricing RAROC ── -->
+      </div>
+
+      <!-- ── Ferramentas ── -->
+      <p class="section-label">Ferramentas e bibliotecas</p>
+      <div class="grid">
+
         <article class="card">
           <header>
-            <h3>Pricing Raroc</h3>
+            <h3>Pricing RAROC</h3>
             <div class="tags">
               <span class="tag">Shiny</span>
+              <span class="tag">R</span>
               <span class="tag">Crédito</span>
               <span class="tag">RAROC</span>
             </div>
@@ -365,6 +341,22 @@
           </div>
         </article>
 
+        <article class="card">
+          <header>
+            <h3>Derivx Risk Neutral</h3>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Derivativos</span>
+              <span class="tag">Biblioteca</span>
+            </div>
+          </header>
+          <p>Biblioteca Python para precificação de opções vanilla e exóticas. Suporte a GBM, Monte Carlo, bermudas, asiáticas e outras.</p>
+          <div class="cta">
+            <a class="link-btn" href="https://pypi.org/project/derivx-precificador/" target="_blank" rel="noopener">Ver no PyPI <span aria-hidden>↗</span></a>
+            <a class="link-btn" href="https://github.com/walterCNeto/precificador" target="_blank" rel="noopener">Repositório <span aria-hidden>↗</span></a>
+          </div>
+        </article>
+
       </div>
     </section>
 
@@ -372,110 +364,70 @@
       <h2 id="artigos-title">Estudos</h2>
       <p class="lead">Análises técnicas e quantitativas.</p>
       <div class="grid">
-        
+
         <article class="card">
           <h3>Regra de Taylor: fundamentos, especificação e aplicação empírica para o Brasil</h3>
           <p>Modelo de política monetária customizado para o contexto brasileiro, incorporando câmbio, risco (CDS) e suavização de taxa.</p>
-          <div class="cta">
-            <a class="link-btn" href="/pdf/Taylor2.pdf" target="_blank" rel="noopener">
-              Baixar PDF <span aria-hidden>⬇</span>
-            </a>
-          </div>
+          <div class="cta"><a class="link-btn" href="/pdf/Taylor2.pdf" target="_blank" rel="noopener">Baixar PDF <span aria-hidden>⬇</span></a></div>
         </article>
 
         <article class="card">
           <h3>Proposta de modelagem para a taxa de referência para o Brasil e EUA</h3>
           <p>Modelagem usando filtro de Kalman como referência para estudos de momento econômico para Brasil e EUA.</p>
-          <div class="cta">
-            <a class="link-btn" href="/pdf/RelatorioSelic.pdf" target="_blank" rel="noopener">
-              Baixar PDF <span aria-hidden>⬇</span>
-            </a>
-          </div>
+          <div class="cta"><a class="link-btn" href="/pdf/RelatorioSelic.pdf" target="_blank" rel="noopener">Baixar PDF <span aria-hidden>⬇</span></a></div>
         </article>
 
         <article class="card">
           <h3>Juros real ex-ante vs juro neutro</h3>
           <p>Este estudo analisa a evolução do juro real ex-ante e do juro neutro no Brasil com base em expectativas do BCB e dados do IPEA/B3.</p>
-          <div class="cta">
-            <a class="link-btn" href="/pdf/JurosReais.pdf" target="_blank" rel="noopener">
-              Baixar PDF <span aria-hidden>⬇</span>
-            </a>
-          </div>
+          <div class="cta"><a class="link-btn" href="/pdf/JurosReais.pdf" target="_blank" rel="noopener">Baixar PDF <span aria-hidden>⬇</span></a></div>
         </article>
-        
+
         <article class="card">
           <h3>Precificação de empréstimos bancários: modelagem aplicada ao consignado INSS no Brasil</h3>
           <p>Modelagem da taxa mínima exigida em um empréstimo bancário que justifica correr o risco de inadimplência e de custo de capital.</p>
-          <div class="cta">
-            <a class="link-btn" href="/pdf/20250717_Walter_MPE_FGV_Precificacao_Consignado_INSS-Dissertação.pdf" target="_blank" rel="noopener">
-              Baixar PDF <span aria-hidden>⬇</span>
-            </a>
-          </div>
+          <div class="cta"><a class="link-btn" href="/pdf/20250717_Walter_MPE_FGV_Precificacao_Consignado_INSS-Dissertação.pdf" target="_blank" rel="noopener">Baixar PDF <span aria-hidden>⬇</span></a></div>
         </article>
 
         <article class="card">
           <h3>Precificação de empréstimos bancários: usando cadeias de Markov</h3>
           <p>Modelagem da taxa mínima exigida em um empréstimo bancário que justifica correr o risco de crédito e de capital usando cadeias de Markov.</p>
-          <div class="cta">
-            <a class="link-btn" href="/pdf/RarocMarkov.pdf" target="_blank" rel="noopener">
-              Baixar PDF <span aria-hidden>⬇</span>
-            </a>
-          </div>
+          <div class="cta"><a class="link-btn" href="/pdf/RarocMarkov.pdf" target="_blank" rel="noopener">Baixar PDF <span aria-hidden>⬇</span></a></div>
         </article>
 
         <article class="card">
           <h3>Modelagem de Credit Scoring</h3>
           <p>Apresentação simplificada do desenvolvimento de um modelo de credit scoring aplicada à aprovação de crédito PJ em instituições financeiras.</p>
           <div class="cta">
-            <a class="link-btn" href="/pdf/PJOTA.pdf" target="_blank" rel="noopener">
-              Baixar PDF <span aria-hidden>⬇</span>
-            </a>
-            <a class="link-btn" href="/bases/PEJOTA.xls" download>
-              Baixar base <span aria-hidden>⬇</span>
-            </a>
+            <a class="link-btn" href="/pdf/PJOTA.pdf" target="_blank" rel="noopener">Baixar PDF <span aria-hidden>⬇</span></a>
+            <a class="link-btn" href="/bases/PEJOTA.xls" download>Baixar base <span aria-hidden>⬇</span></a>
           </div>
         </article>
 
         <article class="card">
           <h3>Análise atuarial de seguros de vida tipo Whole Life</h3>
           <p>Uso da biblioteca LifeInsureR em R (Reinhold Kainhofer) aplicada ao produto seguro de vida inteiro e um aplicativo de testes.</p>
-          <div class="cta">
-            <a class="link-btn" href="/pdf/app.pdf" target="_blank" rel="noopener">
-              Baixar PDF <span aria-hidden>⬇</span>
-            </a>
-          </div>
+          <div class="cta"><a class="link-btn" href="/pdf/app.pdf" target="_blank" rel="noopener">Baixar PDF <span aria-hidden>⬇</span></a></div>
         </article>
 
         <article class="card">
           <h3>Default Risk Charge - FRTB</h3>
           <p>Modelo heurístico para cálculo do VaR de crédito em uma carteira trading.</p>
-          <div class="cta">
-            <a class="link-btn" href="/pdf/drc.pdf" target="_blank" rel="noopener">
-              Baixar PDF <span aria-hidden>⬇</span>
-            </a>
-          </div>
+          <div class="cta"><a class="link-btn" href="/pdf/drc.pdf" target="_blank" rel="noopener">Baixar PDF <span aria-hidden>⬇</span></a></div>
         </article>
 
         <article class="card">
           <h3>DRC x CSRBB</h3>
           <p>Comparação conceitual entre default risk charge no trading book e credit spread risk in the banking book.</p>
-          <div class="cta">
-            <a class="link-btn" href="/pdf/creditrisk-drc-csrbb.pdf" target="_blank" rel="noopener">
-              Baixar PDF <span aria-hidden>⬇</span>
-            </a>
-          </div>
+          <div class="cta"><a class="link-btn" href="/pdf/creditrisk-drc-csrbb.pdf" target="_blank" rel="noopener">Baixar PDF <span aria-hidden>⬇</span></a></div>
         </article>
 
         <article class="card">
           <h3>Opções: financeiras, reais e 0DTE</h3>
           <p>Uma discussão sobre os tipos de opções em mercados financeiros, particularidades e diferenças.</p>
-          <div class="cta">
-            <a class="link-btn" href="/pdf/OptionsText.pdf" target="_blank" rel="noopener">
-              Baixar PDF <span aria-hidden>⬇</span>
-            </a>
-          </div>
+          <div class="cta"><a class="link-btn" href="/pdf/OptionsText.pdf" target="_blank" rel="noopener">Baixar PDF <span aria-hidden>⬇</span></a></div>
         </article>
-        
+
       </div>
     </section>
 
@@ -496,15 +448,12 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
     const links = [...document.querySelectorAll('.menu a')];
     const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
     const observer = new IntersectionObserver((entries)=>{
       entries.forEach(entry=>{
         const i = sections.indexOf(entry.target);
-        if(i>=0){
-          links[i].setAttribute('aria-current', entry.isIntersecting? 'page' : 'false');
-        }
+        if(i>=0) links[i].setAttribute('aria-current', entry.isIntersecting ? 'page' : 'false');
       })
     }, {rootMargin: '-40% 0px -50% 0px', threshold: 0.01});
     sections.forEach(sec=>observer.observe(sec));
